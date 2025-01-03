@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - bash ./redis.sh
+    interactive: true
+  test:
+    cmds:
+      - time  go test -v ./{{.CLI_ARGS}}/...
+    silent: true
